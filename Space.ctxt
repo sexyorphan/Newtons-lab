@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.target=Space
+comment0.text=\ add\ a\ body\ with\ mouse\ click\ \r\n\ \r\n\ \r\n\ Space.\ The\ final\ frontier.\ \r\n\ \r\n\ @author\ Michael\ Kolling\r\n\ @version\ 1.0\r\n
+comment1.params=
+comment1.target=Space()
+comment1.text=\r\n\ Create\ space.\r\n
+comment2.params=
+comment2.target=void\ sunAndPlanet()
+comment2.text=\r\n\ Set\ up\ the\ universe\ with\ a\ sun\ and\ a\ planet.\r\n
+comment3.params=
+comment3.target=void\ sunAndTwoPlanets()
+comment3.text=\r\n\ Set\ up\ the\ universe\ with\ a\ sun\ and\ two\ planets.\r\n
+comment4.params=
+comment4.target=void\ sunPlanetMoon()
+comment4.text=\r\n\ Set\ up\ the\ universe\ with\ a\ sun,\ a\ planet,\ and\ a\ moon.\r\n
+comment5.params=
+comment5.target=void\ addObstacle()
+comment6.params=number
+comment6.target=void\ randomBodies(int)
+comment7.params=
+comment7.target=void\ removeAllObjects()
+comment7.text=\r\n\ Remove\ all\ objects\ currently\ in\ the\ world.\r\n
+numComments=8
