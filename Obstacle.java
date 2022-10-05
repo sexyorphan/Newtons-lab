@@ -17,6 +17,7 @@ public class Obstacle extends Actor
     public void act() 
     {
        Object body = getOneIntersectingObject(Body.class);
+       Object superBody = getOneIntersectingObject(Ssuperbody.class);
        if(body == null && isTouching) { // not touching anymore
         setImage ("block.png");
         isTouching = false;
@@ -27,6 +28,16 @@ public class Obstacle extends Actor
          isTouching = true; 
         
         }
+        if (superBody == null && isTouching ) {
+        setImage ("block.png");
+        isTouching = false;
+        }
+        if (superBody!=null && !isTouching) { // touched
+         setImage ("block-light.png");
+         Greenfoot.playSound (sound);
+         isTouching = true; 
+        
+        }        
       
     }  
       public Obstacle(String soundFile)
@@ -34,12 +45,4 @@ public class Obstacle extends Actor
      { 
         sound = soundFile;
       }
-    public void setRotation(int rotation) {
-        
-    }
- 
-      
-      
-      
-    
 }

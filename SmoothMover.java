@@ -112,4 +112,5 @@ public abstract class SmoothMover extends Actor //abstract - cant add the object
     {
         return movement;
     }
+
 }

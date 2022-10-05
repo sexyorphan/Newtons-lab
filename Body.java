@@ -19,6 +19,7 @@ public class Body extends SmoothMover
     // fields. also gives the smass
     private double mass;
     private int size; 
+    private boolean mouseClicked;
     
     /**
      * Construct a Body with default size, mass, movement and color.
@@ -75,13 +76,7 @@ public class Body extends SmoothMover
                applyGravity(currentBody);
             }
             }
-            
-        if (getSpeed() > 5){  // from the smoothmover class. to avoid it going to fast. 
-         accelerate(0.7);
         }
-        }
- 
-    
     private void applyGravity(Body other)
     {
         double dx = other.getExactX() - this.getExactX();
@@ -123,6 +118,6 @@ public class Body extends SmoothMover
         image.fillOval (0,0,size-1, size-1);
         setImage(image);
          }
-        
+       
     }
 

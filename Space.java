@@ -25,13 +25,19 @@ public class Space extends World
         super(960, 620, 1);
         
         addObstacle();
-        randomBodies(4);
+        //randomBodies(4);
         //manualPress();
-        //mouseKlick(); 
+         
         
         //sunAndPlanet();
         //sunAndTwoPlanets()
         //sunPlanetMoon();
+    }
+    public void act()
+    {
+        manualPress();
+        mouseClick();
+        addingSuper();
     }
     
     /**
@@ -98,6 +104,40 @@ public class Space extends World
              }
     
          }
+             /**
+     * 
+     */
+    private void mouseClick()
+    {
+        if(Greenfoot.mouseClicked(null))
+        {
+            MouseInfo mouse = Greenfoot.getMouseInfo();
+            if (mouse.getButton() == 1) 
+            // left click, adding planet. 
+            {
+                int s = 20 + Greenfoot.getRandomNumber(30);
+                double m = Greenfoot.getRandomNumber(75)+10;
+                double speed = Greenfoot.getRandomNumber(40) / 25;
+                int d = Greenfoot.getRandomNumber(360);
+                int x = (mouse.getX());
+                int y = (mouse.getY());
+                int r =  Greenfoot.getRandomNumber(255);
+                int g =  Greenfoot.getRandomNumber(255);
+                int b =  Greenfoot.getRandomNumber(255);
+                addObject (new Body (s, m, new Vector(d, speed), new Color(r, g, b)), x, y);
+            }
+            Actor body = mouse.getActor();
+            if (mouse.getButton() == 3) 
+            // right click. 
+            {
+                if (body != null && (body instanceof Body))
+                {
+                    removeObject(body);
+                }
+            }
+        }
+
+    }
       /**
      * Remove all objects currently in the world.
      */
@@ -107,16 +147,61 @@ public class Space extends World
         //get object from the actors and then remove them
         // getObjects is a method of the world clas
     }   
-     // public void manualPress(){
-        //if(Greenfoot.isKeyDown("0")){
-        //}
-     // }
-    // public void mouseKlick(){ 
-        // MouseInfo mouse = Greenfoot.getMouseInfo();
-        // if (mouse !=null){
-        // int x =mouse.getX();
-        // int y = mouse.getY();
-         // addObject(new Body(s, m, new Vector(d,s),new Color(rgb)),x,y);
+     private void manualPress(){
+         
+          String key = Greenfoot.getKey(); 
+          // getting information from our keys
+        if (key == null) return; 
+        // null - nothing. so no key is found. 
+        int index = "0123456789".indexOf(key);
+        // indexOf - returns the first charcter in the string,. but its gonna return a number 
+        if (index >= 0)
+            randomBodies(index);
+           
+            // could do this but its too much..smh
+        // if(Greenfoot.isKeyDown("1"))
+        // { randomBodies(1);
         // }
-    // }
+        // if(Greenfoot.isKeyDown("2"))
+        // { randomBodies(2);
+        // }
+         // if(Greenfoot.isKeyDown("3"))
+        // { randomBodies(3);
+        // }
+        // if(Greenfoot.isKeyDown("4"))
+        // { randomBodies(4);
+        // }
+        // if(Greenfoot.isKeyDown("5"))
+        // { randomBodies(5);
+        // }
+        // if(Greenfoot.isKeyDown("6"))
+        // { randomBodies(6);
+        // }
+        // if(Greenfoot.isKeyDown("7"))
+        // { randomBodies(7);
+        // }
+        // if(Greenfoot.isKeyDown("8"))
+        // { randomBodies(8);
+        // }
+        // if(Greenfoot.isKeyDown("9"))
+        // { randomBodies(9);
+        // }
+        // if (Greenfoot.isKeyDown("0"))
+        // {
+            // removeObjects (getObjects(Body.class));
+        // }
+        }
+    private void addingSuper(){
+        if (Greenfoot.isKeyDown("a"))
+        {
+                int x = Greenfoot.getRandomNumber(getWidth());
+                int y = Greenfoot.getRandomNumber(getHeight());
+                addObject(new Ssuperbody(), x, y);
+            
+        }
+         if (Greenfoot.isKeyDown("p"))
+        {
+            removeObjects (getObjects(Ssuperbody.class));
+        }
+        }
 }
